@@ -11,9 +11,9 @@
 </script>
 
 <div class="container my-20">
-  <div class="grid grid-cols-4 gap-6">
+  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
     {#each list as item}
-      <Card />
+      <Card {...item} />
     {/each}
   </div>
 </div>
