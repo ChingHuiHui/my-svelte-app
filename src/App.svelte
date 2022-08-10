@@ -1,5 +1,5 @@
 <script>
-  import { Router, Link, Route } from 'svelte-navigator'
+  import { Router, Route } from 'svelte-navigator'
   import Confirmation from './pages/Confirmation.svelte'
   import Courses from './pages/Courses.svelte'
 </script>
