@@ -2,7 +2,11 @@
 module.exports = {
   content: ['./index.html', './src/**/*.{svelte,js,ts}'],
   theme: {
-    extend: {},
+    extend: {
+      container: {
+        center: true,
+      },
+    },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 }
