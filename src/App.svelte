@@ -1,32 +1,13 @@
+<script>
+  import Card from './lib/Card.svelte'
+
+  let list = [1, 2, 3, 4]
+</script>
+
 <div class="container my-20">
   <div class="grid grid-cols-4 gap-6">
-    <div
-      class="p-4 bg-gray-200 rounded-lg h-32 cursor-pointer hover:border-4 hover:border-teal-600"
-    >
-      <h2 class="text-2xl font-bold">title</h2>
-      <div class="text-lg">name</div>
-      <div class="text-sm">time</div>
-    </div>
-    <div
-      class="p-4 bg-gray-200 rounded-lg h-32 cursor-pointer hover:border-4 hover:border-teal-600"
-    >
-      <h2 class="text-2xl font-bold">title</h2>
-      <div class="text-lg">name</div>
-      <div class="text-sm">time</div>
-    </div>
-    <div
-      class="p-4 bg-gray-200 rounded-lg h-32 cursor-pointer hover:border-4 hover:border-teal-600"
-    >
-      <h2 class="text-2xl font-bold">title</h2>
-      <div class="text-lg">name</div>
-      <div class="text-sm">time</div>
-    </div>
-    <div
-      class="p-4 bg-gray-200 rounded-lg h-32 cursor-pointer hover:border-4 hover:border-teal-600"
-    >
-      <h2 class="text-2xl font-bold">title</h2>
-      <div class="text-lg">name</div>
-      <div class="text-sm">time</div>
-    </div>
+    {#each list as item}
+      <Card />
+    {/each}
   </div>
 </div>
