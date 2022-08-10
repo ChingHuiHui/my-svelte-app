@@ -1,7 +1,19 @@
 <script>
+  import { courses } from '../stores/courses'
+  import { useNavigate } from 'svelte-navigator'
+
   let name = ''
   let email = ''
   let age = 0
+
+  $: disabled = !(name !== '' && /^\S+@\S+\.\S+$/.test(email))
+
+  const navigator = useNavigate()
+
+  function submit() {
+    courses.set([])
+    navigator('/')
+  }
 </script>
 
 <div class="container my-20">
@@ -9,8 +21,18 @@
     <div>Name : {name}</div>
     <div>Email : {email}</div>
     <div>Age : {age}</div>
+    <div class="flex items-center">
+      Select :
+      <ul class="flex flex-wrap ml-4">
+        {#each $courses as course}
+          <li class=" bg-cyan-500 px-2 py-px rounded-lg mr-1 mb-1">
+            {course}
+          </li>
+        {/each}
+      </ul>
+    </div>
   </div>
-  <form class="space-y-4">
+  <form class="space-y-4" on:submit|preventDefault={submit}>
     <div>
       <label for="name">Name</label>
       <input
@@ -41,6 +63,13 @@
         bind:value={age}
       />
     </div>
+    <button
+      type="submit"
+      class="bg-cyan-700 px-4 py-2 rounded-full text-white"
+      class:disabled
+    >
+      SUBMIT
+    </button>
   </form>
 </div>
 
@@ -51,5 +80,9 @@
 
   .input:focus {
     @apply border border-cyan-600;
+  }
+
+  button.disabled {
+    @apply bg-gray-500 bg-opacity-30 pointer-events-none;
   }
 </style>

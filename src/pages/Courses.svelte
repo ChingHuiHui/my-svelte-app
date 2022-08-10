@@ -1,6 +1,7 @@
 <script>
   import { Link } from 'svelte-navigator'
   import Card from '../lib/Card.svelte'
+  import { courses } from '../stores/courses'
 
   $: list = [
     {
@@ -14,18 +15,16 @@
     { title: 'DevOps Course', name: 'Sasaya', date: '2022-09-18' },
   ]
 
-  let selected = []
-
   function selectCourse(title) {
-    if (selected.includes(title)) {
-      selected = selected.filter((value) => value != title)
+    if ($courses.includes(title)) {
+      courses.update((selected) => selected.filter((value) => value != title))
       return
     }
 
-    selected = [...selected, title]
+    courses.update((selected) => [...selected, title])
   }
 
-  $: showLinkButton = selected.length > 0
+  $: showLinkButton = $courses.length > 0
 </script>
 
 <div class="container my-20">
@@ -36,7 +35,7 @@
       <Card
         {...item}
         on:click={() => selectCourse(item.title)}
-        isSelected={selected.includes(item.title)}
+        isSelected={$courses.includes(item.title)}
       />
     {/each}
   </div>
