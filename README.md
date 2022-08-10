@@ -32,3 +32,4 @@ You can preview the production build with `npm run preview`.
 ## Manual Installation
 
 In [this article](https://www.jhanca.site/blog/how-to-install-tailwind-css-with-svelte) I explain step by step how to install and configure Tailwind CSS in a Svelte project.
+# my-svelte-app
